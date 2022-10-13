@@ -6,6 +6,10 @@ const morgan = require('morgan');
 
 dotenv.config();
 
+mongoose.connect(process.env.MONGO_URL, {userNewUrlParser: true, useUnifiedTopology: true}, () => {
+    console.log("Connected to MongoDB");
+})
+
 const app = express();
 
 app.listen(3000, () => {
